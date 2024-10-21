@@ -34,8 +34,20 @@ Q8: Using `grep`, how would you find all occurrences of the word "root" in `/etc
 start at the beginning of a line?
 Ans: grep -e"^root" -e"root" /etc/passwd;
 
+Q9: How can you create a compressed archive of the `/home/user` directory, excluding all
+`.mp4` files?
+Ans:tar --exclude='*.mp4' -czvf user_home_archive.tar.gz /home/user
 
+Q10: How would you extract only a specific file `file.txt` from a `.tar.gz` archive without
+extracting the entire archive?
+Ans:tar -xzf archive.tar.gz file.txt
 
+Q11: How can you append a file called `newfile.txt` to an existing `archive.tar.gz` without
+decompressing the archive?
+Ans:tar -rzf archive.tar.gz newfile.txt
+
+Q12: How would you list the contents of a `.tar.gz` archive without extracting it?
+Ans:tar -tzf archive.tar.gz
 
 Q13.How can you list all currently running processes and then filter for processes that
 include the word "java", showing only the process ID and name?
@@ -62,4 +74,10 @@ Q18: How can you display the total disk usage of the `/var` directory but exclud
 subdirectory `/var/log`?
 Ans: du -sh --exclude=/var/log /var
 
+Q19: How can you use `du` to find the disk usage of files larger than 100MB in a directory?
+Ans:find /path/to/directory -type f -size +100M -exec du -h {} +
+
+Q20: How do you display the disk usage of the 10 largest directories in the `/usr` directory
+using `du`?
+Ans:du -h /usr | sort -hr | head -n 10
 
